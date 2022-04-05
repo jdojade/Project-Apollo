@@ -24,6 +24,9 @@ include_once "includes/dbh.inc.php";
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
   </head>
   <body>
     <input type="checkbox" id="sidebar-toggle" />
@@ -117,7 +120,7 @@ include_once "includes/dbh.inc.php";
               <span>
                 <img src="Img/Icons/Polygon 1.svg">
               </span>
-              <div>
+              <div id="cod-content">
                 <h5>COD</h5>
                 <h4>0</h4>
               </div>
@@ -128,7 +131,7 @@ include_once "includes/dbh.inc.php";
               <span>
                 <img src="Img/Icons/Polygon 1.svg">
               </span>
-              <div>
+              <div id="eWallet-content">
                 <h5>E-WALLET </h5>
                 <h4>0</h4>
               </div>
@@ -140,27 +143,22 @@ include_once "includes/dbh.inc.php";
           <div class="activity-grid">
             <div class="activity-card">
               <h3 class="table-title">Pending Payments</h3>
-              <div class="table-responsive">
-                <table>
+              
+              <div class="table-responsive"> 
+              <table>
                   <thead>
                     <tr>
                       <th>ID</th>
                       <th>Name</th>
+                      <th>Email</th>
                       <th>Address</th>
                       <th>Payment Method</th>
                       <th>Courier</th>
                       <th>Status</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>1</td>
-                      <td>1</td>
-                      <td>1</td>
-                      <td>1</td>
-                      <td>1</td>
-                    </tr>
+                  <tbody id="table-content">
+                 
                   </tbody>
                 </table>
               </div>
@@ -170,4 +168,7 @@ include_once "includes/dbh.inc.php";
       </main>
     </div>
   </body>
+  <script src="js/table.js"></script>
+  <script src="js/cod.js"></script>
+  <script src="js/eWallet.js"></script>
 </html>

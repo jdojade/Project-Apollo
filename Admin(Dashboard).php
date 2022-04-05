@@ -1,3 +1,6 @@
+<?php 
+include_once "includes/dbh.inc.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -136,7 +139,7 @@
         <section class="recent">
           <div class="activity-grid">
             <div class="activity-card">
-              <h3 class="table-title">Latest Apllicants</h3>
+              <h3 class="table-title">Pending Payments</h3>
               <div class="table-responsive">
                 <table>
                   <thead>
@@ -145,7 +148,7 @@
                       <th>Name</th>
                       <th>Address</th>
                       <th>Payment Method</th>
-                      <th>Courier </th>
+                      <th>Courier</th>
                       <th>Status</th>
                     </tr>
                   </thead>

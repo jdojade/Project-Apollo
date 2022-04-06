@@ -24,11 +24,11 @@ include_once "includes/dbh.inc.php";
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
 
 
   </head>
-  <body>
+  <body >
     <input type="checkbox" id="sidebar-toggle" />
     <div class="sidebar">
       <div class="sidebar-header">
@@ -115,25 +115,23 @@ include_once "includes/dbh.inc.php";
               </div>
             </div>
           </div>
-          <div class="card-single">
+          <div class="card-single" onload = "cod()">
             <div class="card-body">
               <span>
                 <img src="Img/Icons/Polygon 1.svg">
               </span>
-              <div id="cod-content">
-                <h5>COD</h5>
-                <h4>0</h4>
+              <div id="codcontent">
+               
               </div>
             </div>
           </div>
-          <div class="card-single">
+          <div class="card-single" onload = "ewallet();">
             <div class="card-body">
               <span>
                 <img src="Img/Icons/Polygon 1.svg">
               </span>
-              <div id="eWallet-content">
-                <h5>E-WALLET </h5>
-                <h4>0</h4>
+              <div id="eWalletcontent">
+               
               </div>
             </div>
           </div>
@@ -145,7 +143,7 @@ include_once "includes/dbh.inc.php";
               <h3 class="table-title">Pending Payments</h3>
               
               <div class="table-responsive"> 
-              <table>
+              <table onload = "table();">
                   <thead>
                     <tr>
                       <th>ID</th>
@@ -157,7 +155,7 @@ include_once "includes/dbh.inc.php";
                       <th>Status</th>
                     </tr>
                   </thead>
-                  <tbody id="table-content">
+                  <tbody id="content">
                  
                   </tbody>
                 </table>
@@ -168,7 +166,45 @@ include_once "includes/dbh.inc.php";
       </main>
     </div>
   </body>
-  <script src="js/table.js"></script>
-  <script src="js/cod.js"></script>
-  <script src="js/eWallet.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   <script type="text/javascript">
+     function table(){
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function(){
+          document.getElementById("content").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "includes/table.php");
+        xhttp.send();
+      }
+
+      setInterval(function(){
+        table();
+      }, 3000);
+
+        function ewallet(){
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function(){
+          document.getElementById("eWalletcontent").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "includes/eWallet.php");
+        xhttp.send();
+      }
+
+      setInterval(function(){
+        ewallet();
+      }, 3000);
+      function cod(){
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function(){
+          document.getElementById("codcontent").innerHTML = this.responseText;
+        }
+        xhttp.open("GET", "includes/cod.php");
+        xhttp.send();
+      }
+
+      setInterval(function(){
+        cod();
+      }, 3000);
+   </script>
 </html>
